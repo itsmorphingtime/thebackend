@@ -8,6 +8,9 @@ module.exports = (function() {
 	var db = null;
 
 	var connect = function() {
+		if (db) {
+			return;
+		}
 		mongoose.connect(uri, {
 			useMongoClient: true
 		});
