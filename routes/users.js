@@ -7,7 +7,15 @@ db.connect();
 router.get('/:id', function(req, res, next) {
 	db.getUserById(req.params.id)
 		.then(function(user) {
-			var values = R.values(user.attributes);
+			var values = [
+				user.attributes.amountOfBlobs,
+				user.attributes.upwardThrust,
+				user.attributes.leftThrust,
+				user.attributes.rightThrust,
+				user.attributes.downwardThrust,
+				user.attributes.anticlockwiseTorque,
+				user.attributes.clockwiseTorque
+			];
 			res.render('users', {
 				user: user,
 				values: values

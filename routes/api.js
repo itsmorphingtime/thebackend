@@ -29,6 +29,7 @@ router.post('/', function(req, res, next) {
 				rightThrust: req.body.rightThrust,
 				downwardThrust: req.body.downwardThrust,
 				anticlockwiseTorque: req.body.anticlockwiseTorque,
+				clockwiseTorque: req.body.clockwiseTorque
 			}
 		})
 		.then(function(data) {
