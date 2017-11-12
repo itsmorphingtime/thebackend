@@ -22,15 +22,15 @@ router.get('/:id', function(req, res, next) {
 router.post('/', function(req, res, next) {
 	db.createUser({
 			name: req.body.name || randomWords(3).join("-"),
-			score: req.body.score,
+			score: parseInt(req.body.score),
 			attributes: {
-				amountOfBlobs: req.body.amountOfBlobs,
-				upwardThrust: req.body.upwardThrust,
-				leftThrust: req.body.leftThrust,
-				rightThrust: req.body.rightThrust,
-				downwardThrust: req.body.downwardThrust,
-				anticlockwiseTorque: req.body.anticlockwiseTorque,
-				clockwiseTorque: req.body.clockwiseTorque,
+				amountOfBlobs: parseInt(req.body.amountOfBlobs),
+				upwardThrust: parseInt(req.body.upwardThrust),
+				leftThrust: parseInt(req.body.leftThrust),
+				rightThrust: parseInt(req.body.rightThrust),
+				downwardThrust: parseInt(req.body.downwardThrust),
+				anticlockwiseTorque: parseInt(req.body.anticlockwiseTorque),
+				clockwiseTorque: parseInt(req.body.clockwiseTorque),
 				timeStamp: req.body.timeStamp
 			}
 		})
@@ -43,16 +43,16 @@ router.put('/', function(req, res, next) {
 	db.updateUser({
 			id: req.body._id,
 			name: req.body.name,
-			score: req.body.score,
+			score: parseInt(req.body.score),
 			$push: {
 				attributes: {
-					amountOfBlobs: req.body.amountOfBlobs,
-					upwardThrust: req.body.upwardThrust,
-					leftThrust: req.body.leftThrust,
-					rightThrust: req.body.rightThrust,
-					downwardThrust: req.body.downwardThrust,
-					anticlockwiseTorque: req.body.anticlockwiseTorque,
-					clockwiseTorque: req.body.clockwiseTorque,
+					amountOfBlobs: parseInt(req.body.amountOfBlobs),
+					upwardThrust: parseInt(req.body.upwardThrust),
+					leftThrust: parseInt(req.body.leftThrust),
+					rightThrust: parseInt(req.body.rightThrust),
+					downwardThrust: parseInt(req.body.downwardThrust),
+					anticlockwiseTorque: parseInt(req.body.anticlockwiseTorque),
+					clockwiseTorque: parseInt(req.body.clockwiseTorque),
 					timeStamp: req.body.timeStamp
 				}
 			}
