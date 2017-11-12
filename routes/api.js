@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var randomWords = require('random-words');
 var db = require('../database/database');
 db.connect();
 
@@ -20,7 +21,7 @@ router.get('/:id', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
 	db.createUser({
-			name: req.body.name,
+			name: req.body.name || randomWords(3).join("-"),
 			score: req.body.score,
 			attributes: {
 				amountOfBlobs: req.body.amountOfBlobs,
