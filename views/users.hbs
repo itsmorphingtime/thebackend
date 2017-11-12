@@ -1,0 +1,34 @@
+<div class="page-header">
+	<h1>{{user.name}} <small>{{user.score}}</small></h1>
+</div>
+<div id="dataHolder" data-series="{{series}}" data-values="{{values}}" data-labels="{{labels}}"></div>
+<div class="jumbotron">
+	<canvas id="myChart"></canvas>
+	<script type="text/javascript">
+		var ctx = document.getElementById("myChart");
+		var dataHolder = document.getElementById("dataHolder");
+		var values = dataHolder.getAttribute('data-values').split(",");
+		var series = dataHolder.getAttribute('data-series');
+		var labels = dataHolder.getAttribute('data-labels').split(",");
+		var myChart = new Chart(ctx, {
+		    type: 'radar',
+		    data: {
+		        labels: labels,
+		        datasets: [{
+		            label: series,
+								backgroundColor: "rgba(200,0,0,0.2)",
+		            data: values
+		        }]
+		    },
+		    options: {
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero:true
+		                }
+		            }]
+		        }
+		    }
+		});
+	</script>
+</div>
