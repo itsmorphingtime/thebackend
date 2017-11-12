@@ -3,32 +3,38 @@
 </div>
 <div id="dataHolder" data-series="{{series}}" data-values="{{values}}" data-labels="{{labels}}"></div>
 <div class="jumbotron">
-	<canvas id="myChart"></canvas>
-	<script type="text/javascript">
-		var ctx = document.getElementById("myChart");
-		var dataHolder = document.getElementById("dataHolder");
-		var values = dataHolder.getAttribute('data-values').split(",");
-		var series = dataHolder.getAttribute('data-series');
-		var labels = dataHolder.getAttribute('data-labels').split(",");
-		var myChart = new Chart(ctx, {
-		    type: 'radar',
-		    data: {
-		        labels: labels,
-		        datasets: [{
-		            label: series,
-								backgroundColor: "rgba(200,0,0,0.2)",
-		            data: values
-		        }]
-		    },
-		    options: {
-		        scales: {
-		            yAxes: [{
-		                ticks: {
-		                    beginAtZero:true
-		                }
-		            }]
-		        }
-		    }
-		});
-	</script>
+	<div class="row">
+		<div class="col-xs-5 col-xs-offset-1">
+			hello
+		</div>
+		<div class="col-xs-5 chart-container">
+			<canvas id="myChart"></canvas>
+		</div>
+	</div>
 </div>
+<script type="text/javascript">
+	var ctx = document.getElementById("myChart");
+	var dataHolder = document.getElementById("dataHolder");
+	var values = dataHolder.getAttribute('data-values').split(",");
+	var randomColor = 'rgba(' + getRandomColorInt() + ',' + getRandomColorInt() + ',' + getRandomColorInt() + ',0.2)';
+
+	var myChart = new Chart(ctx, {
+		type: 'radar',
+		data: {
+			labels: ["forward speed", "leftward speed", "backward speed", "rightward speed", "left spit"],
+			datasets: [{
+				backgroundColor: randomColor,
+				data: values
+			}]
+		},
+		options: {
+			legend: {
+				display: false
+			}
+		}
+	});
+
+	function getRandomColorInt() {
+		return Math.floor(Math.random() * 256);
+	}
+</script>

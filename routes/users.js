@@ -10,11 +10,7 @@ router.get('/:id', function(req, res, next) {
 		.then(function(user) {
 			res.render('users', {
 				user: user,
-				values: [
-					[12, 19, 3, 5, 2]
-				],
-				labels: ["forward speed", "leftward speed", "backward speed", "rightward speed", "left spit"],
-				series: "set1"
+				values: [12, 19, 3, 5, 20]
 			});
 		});
 });
