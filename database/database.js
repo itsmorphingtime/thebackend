@@ -4,7 +4,7 @@ module.exports = (function() {
 	mongoose.Promise = require('q').Promise;
 	var R = require('ramda');
 	var UserModel = require('./userSchema');
-	var uri = 'mongodb://127.0.0.1:27017/hack_sussex';
+	var uri = 'mongodb://test:test@ds157185.mlab.com:57185/hacksussex';
 	var db = null;
 
 	var connect = function() {
