@@ -30,7 +30,8 @@ router.post('/', function(req, res, next) {
 				rightThrust: req.body.rightThrust,
 				downwardThrust: req.body.downwardThrust,
 				anticlockwiseTorque: req.body.anticlockwiseTorque,
-				clockwiseTorque: req.body.clockwiseTorque
+				clockwiseTorque: req.body.clockwiseTorque,
+				timeStamp: req.body.timeStamp
 			}
 		})
 		.then(function(data) {
@@ -43,14 +44,17 @@ router.put('/', function(req, res, next) {
 			id: req.body._id,
 			name: req.body.name,
 			score: req.body.score,
-			attributes: {
-				amountOfBlobs: req.body.amountOfBlobs,
-				upwardThrust: req.body.upwardThrust,
-				leftThrust: req.body.leftThrust,
-				rightThrust: req.body.rightThrust,
-				downwardThrust: req.body.downwardThrust,
-				anticlockwiseTorque: req.body.anticlockwiseTorque,
-				clockwiseTorque: req.body.clockwiseTorque
+			$push: {
+				attributes: {
+					amountOfBlobs: req.body.amountOfBlobs,
+					upwardThrust: req.body.upwardThrust,
+					leftThrust: req.body.leftThrust,
+					rightThrust: req.body.rightThrust,
+					downwardThrust: req.body.downwardThrust,
+					anticlockwiseTorque: req.body.anticlockwiseTorque,
+					clockwiseTorque: req.body.clockwiseTorque,
+					timeStamp: req.body.timeStamp
+				}
 			}
 		})
 		.then(function(data) {
