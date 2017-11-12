@@ -5,11 +5,13 @@ var UserSchema = new Schema({
 	name: String,
 	score: Number,
 	attributes: {
-		forward_speed: Number,
-		leftward_speed: Number,
-		rightward_speed: Number,
-		backward_speed: Number,
-		left_spin: Number
+		amountOfBlobs: Number,
+		upwardThrust: Number,
+		leftThrust: Number,
+		rightThrust: Number,
+		downwardThrust: Number,
+		anticlockwiseTorque: Number,
+		clockwiseTorque: Number
 	}
 });
 
