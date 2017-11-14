@@ -46,16 +46,16 @@ router.put('/', function(req, res, next) {
 	db.updateUser({
 			id: req.body._id,
 			name: req.body.name,
-			score: parseInt(req.body.score),
+			score: parseInt(req.body.score) || 0,
 			$push: {
 				attributes: {
-					amountOfBlobs: parseInt(req.body.amountOfBlobs),
-					upwardThrust: parseInt(req.body.upwardThrust),
-					leftThrust: parseInt(req.body.leftThrust),
-					rightThrust: parseInt(req.body.rightThrust),
-					downwardThrust: parseInt(req.body.downwardThrust),
-					anticlockwiseTorque: parseInt(req.body.anticlockwiseTorque),
-					clockwiseTorque: parseInt(req.body.clockwiseTorque),
+					amountOfBlobs: parseInt(req.body.amountOfBlobs) || 0,
+					upwardThrust: parseInt(req.body.upwardThrust) || 0,
+					leftThrust: parseInt(req.body.leftThrust) || 0,
+					rightThrust: parseInt(req.body.rightThrust) || 0,
+					downwardThrust: parseInt(req.body.downwardThrust) || 0,
+					anticlockwiseTorque: parseInt(req.body.anticlockwiseTorque) || 0,
+					clockwiseTorque: parseInt(req.body.clockwiseTorque) || 0,
 					timeStamp: req.body.timeStamp
 				}
 			}
