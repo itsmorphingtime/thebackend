@@ -20,6 +20,10 @@ router.get('/:id', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
+	// if(req.rawBody) {
+		req.body = JSON.parse(req.rawBody);
+	// }
+	// console.log(JSON.parse(req.rawBody).score);
 	db.createUser({
 			name: req.body.name || randomWords(3).join("-"),
 			score: parseInt(req.body.score) || 0,
@@ -40,9 +44,9 @@ router.post('/', function(req, res, next) {
 });
 
 router.put('/', function(req, res, next) {
-	// if (req.rawBody) {
-	// 	req.body = req.rawBody;
-	// }
+	if (req.rawBody) {
+		req.body = JSON.parse(req.rawBody);
+	}
 	db.updateUser({
 			id: req.body._id,
 			name: req.body.name,
