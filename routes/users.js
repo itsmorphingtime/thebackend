@@ -18,7 +18,7 @@ router.get('/:id', function(req, res, next) {
 				R.reduce((acc, attributes) => acc += attributes.rightThrust || 0, 0, user.attributes) / user.attributes.length,
 				R.reduce((acc, attributes) => acc += attributes.downwardThrust || 0, 0, user.attributes) / user.attributes.length,
 				R.reduce((acc, attributes) => acc += attributes.anticlockwiseTorque || 0, 0, user.attributes) / user.attributes.length,
-				R.reduce((acc, attributes) => acc += attributes.clockwiseTorqu || 0, 0, user.attributes) / user.attributes.length
+				R.reduce((acc, attributes) => acc += attributes.clockwiseTorque || 0, 0, user.attributes) / user.attributes.length
 			];
 			res.render('users', {
 				user: user,
