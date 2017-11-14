@@ -16,14 +16,25 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+var rawBodySaver = function(req, res, buf, encoding) {
+	if (buf && buf.length) {
+		req.rawBody = buf.toString(encoding || 'utf8');
+	}
+};
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(bodyParser.json());
+
+app.use(bodyParser.json({
+	verify: rawBodySaver
+}));
 app.use(bodyParser.urlencoded({
-	extended: false
+	verify: rawBodySaver,
+	extended: true
 }));
 app.use(bodyParser.raw({
+	verify: rawBodySaver,
 	type: function() {
 		return true;
 	}

@@ -40,7 +40,7 @@ router.post('/', function(req, res, next) {
 });
 
 router.put('/', function(req, res, next) {
-	if (Object.keys(req.body).length === 1) {
+	if (req.rawBody) {
 		req.body = JSON.parse(Object.keys(req.body));
 	}
 	db.updateUser({
