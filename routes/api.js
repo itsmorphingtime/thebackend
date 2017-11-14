@@ -43,7 +43,7 @@ router.put('/', function(req, res, next) {
 	if (req.rawBody) {
 		req.body = JSON.parse(req.rawBody);
 	}
-	consolelog(JSON.stringify(req.body));
+	console.log(JSON.stringify(req.body));
 	var myAttr = {
 		amountOfBlobs: parseInt(req.body.amountOfBlobs || 0),
 		upwardThrust: parseInt(req.body.upwardThrust || 0),
