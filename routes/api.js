@@ -41,7 +41,7 @@ router.post('/', function(req, res, next) {
 
 router.put('/', function(req, res, next) {
 	if (req.rawBody) {
-		req.body = JSON.parse(Object.keys(req.body));
+		req.body = req.rawBody;
 	}
 	db.updateUser({
 			id: req.body._id,
