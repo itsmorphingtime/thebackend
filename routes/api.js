@@ -43,6 +43,7 @@ router.put('/', function(req, res, next) {
 	if (req.rawBody) {
 		req.body = JSON.parse(req.rawBody);
 	}
+	console.log(req.rawBody);
 	db.updateUser({
 			id: req.body._id,
 			name: req.body.name,
