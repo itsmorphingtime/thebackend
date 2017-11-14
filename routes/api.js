@@ -62,7 +62,7 @@ function getProperAttributes(body) {
 			downwardThrust: parseInt(body.attributes.downwardThrust) || 0,
 			anticlockwiseTorque: parseInt(body.attributes.anticlockwiseTorque) || 0,
 			clockwiseTorque: parseInt(body.attributes.clockwiseTorque) || 0,
-			timeStamp: new Date(body.attributes.timeStamp)
+			timeStamp: new Date(Date.parse(body.attributes.timeStamp))
 		};
 	} else {
 		return {
@@ -73,7 +73,7 @@ function getProperAttributes(body) {
 			downwardThrust: parseInt(body.downwardThrust) || 0,
 			anticlockwiseTorque: parseInt(body.anticlockwiseTorque) || 0,
 			clockwiseTorque: parseInt(body.clockwiseTorque) || 0,
-			timeStamp: new Date(body.timeStamp)
+			timeStamp: new Date(Date.parse(body.timeStamp))
 		};
 	}
 }
