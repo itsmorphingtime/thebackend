@@ -24,8 +24,7 @@ router.post('/', function(req, res, next) {
 	var myAttr = getProperAttributes(req.body);
 	db.createUser({
 			name: req.body.name || randomWords(3).join("-"),
-			score: parseInt(req.body.score) || 0,
-			attributes: myAttr
+			score: parseInt(req.body.score) || 0
 		})
 		.then(function(data) {
 			res.json(data);
