@@ -20,11 +20,11 @@ router.get('/:id', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-	console.log(typeof req.body.attributes.timeStamp, req.body.attributes.timeStamp);
 	var myAttr = getProperAttributes(req.body);
 	db.createUser({
 			name: req.body.name || randomWords(3).join("-"),
-			score: parseInt(req.body.score) || 0
+			score: parseInt(req.body.score) || 0,
+			attributes: myAttr
 		})
 		.then(function(data) {
 			res.json(data);
@@ -35,8 +35,6 @@ router.put('/', function(req, res, next) {
 	if (req.rawBody) {
 		req.body = JSON.parse(req.rawBody);
 	}
-	console.log(typeof req.body.attributes.timeStamp, req.body.attributes.timeStamp);
-
 	var myAttr = getProperAttributes(req.body);
 	db.updateUser({
 			id: req.body._id,
@@ -61,7 +59,7 @@ function getProperAttributes(body) {
 			downwardThrust: parseInt(body.attributes.downwardThrust) || 0,
 			anticlockwiseTorque: parseInt(body.attributes.anticlockwiseTorque) || 0,
 			clockwiseTorque: parseInt(body.attributes.clockwiseTorque) || 0,
-			timeStamp: new Date(body.attributes.timeStamp)
+			timeStamp: new Date()
 		};
 	} else {
 		return {
@@ -72,7 +70,7 @@ function getProperAttributes(body) {
 			downwardThrust: parseInt(body.downwardThrust) || 0,
 			anticlockwiseTorque: parseInt(body.anticlockwiseTorque) || 0,
 			clockwiseTorque: parseInt(body.clockwiseTorque) || 0,
-			timeStamp: new Date(body.timeStamp)
+			timeStamp: new Date()
 		};
 	}
 }
