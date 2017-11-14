@@ -45,20 +45,20 @@ router.put('/', function(req, res, next) {
 	}
 	console.log(JSON.stringify(req.body));
 	var myAttr = {
-		amountOfBlobs: req.body.amountOfBlobs || 0,
-		upwardThrust: req.body.upwardThrust || 0,
-		leftThrust: req.body.leftThrust || 0,
-		rightThrust: req.body.rightThrust || 0,
-		downwardThrust: req.body.downwardThrust || 0,
-		anticlockwiseTorque: req.body.anticlockwiseTorque || 0,
-		clockwiseTorque: req.body.clockwiseTorque || 0,
+		amountOfBlobs: req.body.amountOfBlobs,
+		upwardThrust: req.body.upwardThrust,
+		leftThrust: req.body.leftThrust,
+		rightThrust: req.body.rightThrust,
+		downwardThrust: req.body.downwardThrust,
+		anticlockwiseTorque: req.body.anticlockwiseTorque,
+		clockwiseTorque: req.body.clockwiseTorque,
 		timeStamp: req.body.timeStamp
 	};
 	console.log(JSON.stringify(myAttr));
 	db.updateUser({
 			id: req.body._id,
 			name: req.body.name,
-			score: req.body.score || 0,
+			score: req.body.score,
 			$push: {
 				attributes: myAttr
 			}
