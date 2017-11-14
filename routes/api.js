@@ -20,7 +20,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-	console.log(typeof req.body.attributes.timeStamp, req.body.attributes.timeStamp, new Date(req.body.attributes.timeStamp));
+	console.log(typeof req.body.attributes.timeStamp, req.body.attributes.timeStamp);
 	var myAttr = getProperAttributes(req.body);
 	db.createUser({
 			name: req.body.name || randomWords(3).join("-"),
@@ -36,6 +36,8 @@ router.put('/', function(req, res, next) {
 	if (req.rawBody) {
 		req.body = JSON.parse(req.rawBody);
 	}
+	console.log(typeof req.body.attributes.timeStamp, req.body.attributes.timeStamp);
+
 	var myAttr = getProperAttributes(req.body);
 	db.updateUser({
 			id: req.body._id,
