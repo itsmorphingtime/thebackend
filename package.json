@@ -19,7 +19,7 @@
     "morgan": "^1.10.0",
     "q": "^1.5.1",
     "ramda": "^0.27.0",
-    "random-words": "^1.1.1",
+    "random-words": "^1.2.0",
     "serve-favicon": "^2.5.0"
   }
 }
